@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(Input.GetKey("d") || Input.GetKey("right"))
         {
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && CheckGround.isGrounded)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
+            animator.SetBool("Run", false);
         }
     }
 }
